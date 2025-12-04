@@ -8,7 +8,7 @@ services:
     dockerfilePath: ./plantas-service/Dockerfile
     dockerContext: ./plantas-service
     envVars:
-      - key: PORT
+      - key: PORTT
         value: "5001"
       - key: FLASK_APP
         value: app.py
