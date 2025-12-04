@@ -5,10 +5,10 @@ services:
     name: plantas-service
     runtime: docker
     branch: main
-    dockerfilePath: ./plantas-service/Dockerfile
+    dockerfilePath: ./Dockerfile
     dockerContext: ./plantas-service
     envVars:
-      - key: PORTT
+      - key: PORT
         value: "5001"
       - key: FLASK_APP
         value: app.py
@@ -20,7 +20,7 @@ services:
     name: cuidados-service
     runtime: docker
     branch: main
-    dockerfilePath: ./cuidados-service/Dockerfile
+    dockerfilePath: ./Dockerfile
     dockerContext: ./cuidados-service
     envVars:
       - key: PORT
