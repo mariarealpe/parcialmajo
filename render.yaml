@@ -1,0 +1,30 @@
+# render.yaml
+# Configuración para despliegue en Render
+
+services:
+  # Servicio de Plantas
+  - type: web
+    name: plantas-service
+    env: docker
+    dockerfilePath: ./plantas-service/Dockerfile
+    dockerContext: ./plantas-service
+    envVars:
+      - key: FLASK_APP
+        value: app.py
+      - key: PYTHONUNBUFFERED
+        value: 1
+    healthCheckPath: /health
+
+  # Servicio de Cuidados
+  - type: web
+    name: cuidados-service
+    env: docker
+    dockerfilePath: ./cuidados-service/Dockerfile
+    dockerContext: ./cuidados-service
+    envVars:
+      - key: FLASK_APP
+        value: app.py
+      - key: PYTHONUNBUFFERED
+        value: 1
+    healthCheckPath: /health
+
