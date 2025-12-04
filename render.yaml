@@ -1,30 +1,32 @@
 # render.yaml
-# Configuración para despliegue en Render
-
+# Configuración para despliegue en Render (formato con branch y puerto en envVars)
 services:
-  # Servicio de Plantas
   - type: web
     name: plantas-service
-    env: docker
+    runtime: docker
+    branch: main
     dockerfilePath: ./plantas-service/Dockerfile
     dockerContext: ./plantas-service
     envVars:
+      - key: PORT
+        value: "5001"
       - key: FLASK_APP
         value: app.py
       - key: PYTHONUNBUFFERED
-        value: 1
+        value: "1"
     healthCheckPath: /health
 
-  # Servicio de Cuidados
   - type: web
     name: cuidados-service
-    env: docker
+    runtime: docker
+    branch: main
     dockerfilePath: ./cuidados-service/Dockerfile
     dockerContext: ./cuidados-service
     envVars:
+      - key: PORT
+        value: "5002"
       - key: FLASK_APP
         value: app.py
       - key: PYTHONUNBUFFERED
-        value: 1
+        value: "1"
     healthCheckPath: /health
-
